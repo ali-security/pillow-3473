@@ -55,7 +55,7 @@ jobs:
 
     # sets env: pythonLocation
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: MatteoH2O1999/setup-python@v4
       with:
         python-version: ${{ matrix.python-version }}
         architecture: ${{ matrix.architecture }}
@@ -65,8 +65,8 @@ jobs:
     - name: Print build system information
       run: python3 .github/workflows/system-info.py
 
-    - name: python3 -m pip install wheel pytest pytest-cov pytest-timeout defusedxml
-      run: python3 -m pip install wheel pytest pytest-cov pytest-timeout defusedxml
+    - name: python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' wheel pytest pytest-cov pytest-timeout defusedxml
+      run: python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' wheel pytest pytest-cov pytest-timeout defusedxml
 
     - name: Install dependencies
       id: install
@@ -88,7 +88,7 @@ jobs:
 
     - name: Cache build
       id: build-cache
-      uses: actions/cache@v3
+      uses: actions/cache@v4
       with:
         path: winbuild\build
         key:

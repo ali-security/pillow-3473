@@ -8,7 +8,7 @@ Dependencies
 
 Install::
 
-    python3 -m pip install pytest pytest-cov pytest-timeout
+    python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' pytest pytest-cov pytest-timeout
 
 Execution
 ---------

@@ -138,7 +138,9 @@ def testimage():
     In 1.1.6, you can use the ImageMath module to do image
     calculations.
 
-    >>> im = ImageMath.eval("float(im + 20)", im=im.convert("L"))
+    >>> im = ImageMath.lambda_eval( \
+      lambda args: args["float"](args["im"] + 20), im=im.convert("L") \
+    )
     >>> im.mode, im.size
     ('F', (128, 128))
 

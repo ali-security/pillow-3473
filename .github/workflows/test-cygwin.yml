@@ -78,7 +78,7 @@ jobs:
           dirs: 'C:\cygwin\bin;C:\cygwin\lib\lapack'
 
       - name: pip cache
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: 'C:\cygwin\home\runneradmin\.cache\pip'
           key: ${{ runner.os }}-cygwin-pip3.${{ matrix.python-minor-version }}-${{ hashFiles('.ci/install.sh') }}
@@ -96,7 +96,7 @@ jobs:
       - name: Install a different NumPy
         shell: dash.exe -l "{0}"
         run: |
-          python3 -m pip install -U 'numpy!=1.21.*'
+          python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' -U 'numpy!=1.21.*'
 
       - name: Build
         shell: bash.exe -eo pipefail -o igncr "{0}"

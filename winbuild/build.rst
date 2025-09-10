@@ -93,7 +93,7 @@ Pillow for the selected version of Python.
 instead of installing Pillow.
 
 You can also use ``winbuild\build\build_pillow.cmd --inplace develop`` to build
-and install Pillow in develop mode (instead of ``python3 -m pip install --editable``).
+and install Pillow in develop mode (instead of ``python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' --editable``).
 
 Testing Pillow
 --------------

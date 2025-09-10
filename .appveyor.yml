@@ -45,14 +45,14 @@ build_script:
 
 test_script:
 - cd c:\pillow
-- '%PYTHON%\%EXECUTABLE% -m pip install pytest pytest-cov pytest-timeout'
+- '%PYTHON%\%EXECUTABLE% -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' pytest pytest-cov pytest-timeout'
 - c:\"Program Files (x86)"\"Windows Kits"\10\Debuggers\x86\gflags.exe /p /enable %PYTHON%\%EXECUTABLE%
 - '%PYTHON%\%EXECUTABLE% -c "from PIL import Image"'
 - '%PYTHON%\%EXECUTABLE% -m pytest -vx --cov PIL --cov Tests --cov-report term --cov-report xml Tests'
 #- '%PYTHON%\%EXECUTABLE% test-installed.py -v -s %TEST_OPTIONS%' TODO TEST_OPTIONS with pytest?
 
 after_test:
-- python -m pip install codecov
+- python -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' codecov
 - codecov --file coverage.xml --name %PYTHON% --flags AppVeyor
 
 matrix:
@@ -69,7 +69,7 @@ artifacts:
 
 before_deploy:
   - cd c:\pillow
-  - '%PYTHON%\%EXECUTABLE% -m pip install wheel'
+  - '%PYTHON%\%EXECUTABLE% -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' wheel'
   - cd c:\pillow\winbuild\
   - c:\pillow\winbuild\build\build_pillow.cmd bdist_wheel
   - cd c:\pillow

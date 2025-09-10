@@ -25,25 +25,25 @@ if [[ $(uname) != CYGWIN* ]]; then
                              cmake meson imagemagick libharfbuzz-dev libfribidi-dev
 fi
 
-python3 -m pip install --upgrade pip
-python3 -m pip install --upgrade wheel
-PYTHONOPTIMIZE=0 python3 -m pip install cffi
-python3 -m pip install coverage
-python3 -m pip install defusedxml
-python3 -m pip install olefile
-python3 -m pip install -U pytest
-python3 -m pip install -U pytest-cov
-python3 -m pip install -U pytest-timeout
-python3 -m pip install pyroma
+python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' --upgrade pip
+python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' --upgrade wheel
+PYTHONOPTIMIZE=0 python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' cffi
+python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' coverage
+python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' defusedxml
+python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' olefile
+python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' -U pytest
+python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' -U pytest-cov
+python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' -U pytest-timeout
+python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' pyroma
 
 if [[ $(uname) != CYGWIN* ]]; then
     # TODO Remove condition when NumPy supports 3.12
-    if ! [ "$GHA_PYTHON_VERSION" == "3.12-dev" ]; then python3 -m pip install numpy ; fi
+    if ! [ "$GHA_PYTHON_VERSION" == "3.12-dev" ]; then python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' numpy ; fi
 
     # PyQt6 doesn't support PyPy3
     if [[ $GHA_PYTHON_VERSION == 3.* ]]; then
         sudo apt-get -qq install libegl1 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxkbcommon-x11-0
-        python3 -m pip install pyqt6
+        python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' pyqt6
     fi
 
     # webp

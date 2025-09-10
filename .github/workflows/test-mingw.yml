@@ -75,12 +75,12 @@ jobs:
                   ${{ matrix.package }}-python-pyqt6
           fi
 
-          python3 -m pip install pyroma pytest pytest-cov pytest-timeout
+          python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' pyroma pytest pytest-cov pytest-timeout
 
           pushd depends && ./install_extra_test_images.sh && popd
 
       - name: Build Pillow
-        run: CFLAGS="-coverage" python3 -m pip install --global-option="build_ext" .
+        run: CFLAGS="-coverage" python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' --global-option="build_ext" .
 
       - name: Test Pillow
         run: |

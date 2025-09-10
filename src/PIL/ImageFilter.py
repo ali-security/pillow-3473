@@ -377,7 +377,7 @@ class Color3DLUT(MultibandFilter):
         if hasattr(table, "shape"):
             try:
                 import numpy
-            except ImportError:  # pragma: no cover
+            except ImportError:
                 pass
 
         if numpy and isinstance(table, numpy.ndarray):
