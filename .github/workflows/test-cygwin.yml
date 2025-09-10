@@ -20,7 +20,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2022
     strategy:
       fail-fast: false
       matrix:
@@ -134,7 +134,7 @@ jobs:
     permissions:
       contents: none
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     name: Cygwin Test Successful
     steps:
       - name: Success
