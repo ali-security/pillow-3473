@@ -436,6 +436,22 @@ class pil_build_ext(build_ext):
         if _cmd_exists(os.environ.get("PKG_CONFIG", "pkg-config")):
             pkg_config = _pkg_config
 
+        # Fix for powerpc64le-linux-gnu GCC segfault issues
+        # Reduce optimization level and disable problematic optimizations
+        cc = os.environ.get("CC", "")
+        if (cc.endswith("powerpc64le-linux-gnu-gcc") or 
+            "powerpc64le" in cc or 
+            os.environ.get("CROSS_COMPILE", "").endswith("powerpc64le-linux-gnu-")):
+            if "CFLAGS" not in os.environ:
+                os.environ["CFLAGS"] = ""
+            # Add flags to prevent segfaults in powerpc64le GCC
+            # -O1 instead of -O2/-O3 to reduce compiler stress
+            # Disable vectorization that can cause segfaults
+            powerpc_flags = " -O1 -fno-tree-loop-vectorize -fno-tree-slp-vectorize -fno-vect-cost-model"
+            if powerpc_flags not in os.environ["CFLAGS"]:
+                os.environ["CFLAGS"] += powerpc_flags
+                _dbg("Added powerpc64le-specific CFLAGS to prevent segfaults: %s", powerpc_flags)
+
         #
         # add configured kits
         for root_name, lib_name in dict(
