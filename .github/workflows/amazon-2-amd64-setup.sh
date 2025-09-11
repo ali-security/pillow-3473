@@ -6,25 +6,8 @@
 #     harfbuzz-devel fribidi-devel libraqm-devel libimagequant-devel libxcb-devel
 
 # Required for _ctypes to be available in Python
-# yum install -y libffi-devel
-sudo yum install -y \
-    libjpeg-turbo-devel \
-    zlib-devel \
-    libtiff-devel \
-    libwebp-devel \
-    openjpeg2-devel \
-    lcms2-devel \
-    freetype-devel \
-    harfbuzz-devel \
-    fribidi-devel \
-    libxcb-devel \
-    libffi-devel \
-    bzip2 bzip2-devel \
-    ncurses ncurses-devel \
-    gdbm gdbm-devel \
-    xz xz-devel \
-    readline readline-devel \
-    openjpeg2-devel
+yum install -y libffi-devel
+echo "rpm -ql libffi-devel | grep ffi.h"
 rpm -ql libffi-devel | grep ffi.h
 yum install -y pkgconfig
 pkg-config --cflags --libs libffi
