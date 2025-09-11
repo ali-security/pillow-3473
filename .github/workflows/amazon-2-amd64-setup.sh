@@ -20,6 +20,11 @@ sudo yum install \
     fribidi-devel \
     libxcb-devel \
     libffi-devel \
+    bzip2 bzip2-devel \
+    ncurses ncurses-devel \
+    gdbm gdbm-devel \
+    xz xz-devel \
+    readline readline-devel \
     openjpeg2-devel
 
 # Download and compile Python 3.9.16
