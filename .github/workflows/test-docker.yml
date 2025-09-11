@@ -96,12 +96,12 @@ jobs:
         )
         sudo chown -R ${userids[${{ matrix.docker }}]} $GITHUB_WORKSPACE
 
-        if [[ "${{ matrix.docker }}" == "amazon-2-amd64" ]]; then
-          docker run --name pillow_container-"" -v $GITHUB_WORKSPACE:/Pillow --user root pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }} /bin/bash -c "/Pillow/.github/workflows/amazon-2-amd64-setup.sh && sudo -u pillow /depends/test.sh"
-        else
-          docker run --name pillow_container -v $GITHUB_WORKSPACE:/Pillow pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }}
-        fi
-        
+        # if [[ "${{ matrix.docker }}" == "amazon-2-amd64" ]]; then
+        #   docker run --name pillow_container-"" -v $GITHUB_WORKSPACE:/Pillow --user root pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }} /bin/bash -c "/Pillow/.github/workflows/amazon-2-amd64-setup.sh && sudo -u pillow /depends/test.sh"
+        # else
+        #   docker run --name pillow_container -v $GITHUB_WORKSPACE:/Pillow pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }}
+        # fi
+        docker run --name pillow_container -v $GITHUB_WORKSPACE:/Pillow pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }}
         sudo chown -R runner $GITHUB_WORKSPACE
 
     - name: After success
