@@ -107,7 +107,11 @@ jobs:
       run: |
         PATH="$PATH:~/.local/bin"
         docker start pillow_container
-        pil_path=`docker exec pillow_container /vpy3/bin/python -c 'import os, PIL;print(os.path.realpath(os.path.dirname(PIL.__file__)))'`
+        if [[ "${{ matrix.docker }}" == "amazon-2-amd64" ]]; then
+          pil_path=`docker exec pillow_container /vpy3/bin/python3 -c 'import os, PIL;print(os.path.realpath(os.path.dirname(PIL.__file__)))'`
+        else
+          pil_path=`docker exec pillow_container /vpy3/bin/python -c 'import os, PIL;print(os.path.realpath(os.path.dirname(PIL.__file__)))'`
+        fi
         docker stop pillow_container
         sudo mkdir -p $pil_path
         sudo cp src/PIL/*.py $pil_path

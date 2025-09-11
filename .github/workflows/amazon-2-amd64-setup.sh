@@ -18,8 +18,5 @@ cd ..
 
 # Update the symlink in the virtual environment to point to the new Python
 ln -sf /Python-3.9.17/python /vpy3/bin/python3
-echo 'export PYTHONPATH=/vpy3/lib/python3.9/site-packages:$PYTHONPATH' >> ~/.bashrc
-echo 'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi' >> ~/.bash_profile
-
 
 python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' pytest pytest-cov
