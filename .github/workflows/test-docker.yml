@@ -99,7 +99,7 @@ jobs:
         if [[ "${{ matrix.docker }}" == "amazon-2-amd64" ]]; then
           docker run --name pillow_container -v $GITHUB_WORKSPACE:/Pillow --user root pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }} /bin/bash -c "chmod +x /Pillow/.github/workflows/amazon-2-amd64-setup.sh && sh /Pillow/.github/workflows/amazon-2-amd64-setup.sh && sudo -u pillow /depends/test.sh"
         elif [[ "${{ matrix.docker }}" == "arch" ]]; then
-          docker run --name pillow_container -v $GITHUB_WORKSPACE:/Pillow pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }} /bin/bash -c "command -v gcc && sudo -u pillow /depends/test.sh"
+          docker run --name pillow_container -v $GITHUB_WORKSPACE:/Pillow --user root pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }} /bin/bash -c "command -v gcc && sudo -u pillow /depends/test.sh"
         else
           docker run --name pillow_container -v $GITHUB_WORKSPACE:/Pillow pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }}
         fi
