@@ -19,6 +19,7 @@ sudo yum install \
     harfbuzz-devel \
     fribidi-devel \
     libxcb-devel \
+    libffi-devel \
     openjpeg2-devel
 
 # Download and compile Python 3.9.16
