@@ -82,7 +82,7 @@ jobs:
           ["alpine"]=1001
           ["amazon-2-amd64"]=1001
           ["amazon-2023-amd64"]=1001
-          ["arch"]=1000
+          ["arch"]=1001
           ["centos-7-amd64"]=1000
           ["centos-stream-8-amd64"]=1000
           ["centos-stream-9-amd64"]=1001
