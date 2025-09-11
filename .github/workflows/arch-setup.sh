@@ -1,5 +1,4 @@
-pacman -S --needed base-devel libjpeg-turbo libjpeg-turbo-devel \
-  libtiff libtiff-devel openjpeg2 openjpeg2-devel \
-  libxcb libxcb-devel libimagequant libimagequant-devel
-
-  
+pacman -Sy --needed base-devel \
+    zlib libjpeg-turbo libtiff openjpeg2 freetype2 \
+    libwebp lcms2 harfbuzz fribidi xcb-util-image xcb-util-keysyms \
+    libimagequant
