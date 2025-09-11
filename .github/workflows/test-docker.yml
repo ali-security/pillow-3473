@@ -109,7 +109,7 @@ jobs:
       run: |
         PATH="$PATH:~/.local/bin"
         docker start pillow_container
-        if [[ "${{ matrix.docker }}" == "amazon-2-amd64" ]]; then
+        if [[ "${{ matrix.docker }}" == "amazon-2-amd64" || "${matrix.docker}" == "arch" ]]; then
           pil_path=`docker exec pillow_container /vpy3/bin/python3 -c 'import os, PIL;print(os.path.realpath(os.path.dirname(PIL.__file__)))'`
         else
           pil_path=`docker exec pillow_container /vpy3/bin/python -c 'import os, PIL;print(os.path.realpath(os.path.dirname(PIL.__file__)))'`
