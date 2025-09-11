@@ -18,3 +18,5 @@ cd ..
 
 # Update the symlink in the virtual environment to point to the new Python
 ln -sf /Python-3.9.16/python /vpy3/bin/python3
+
+	python3 -m pip install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' pytest
