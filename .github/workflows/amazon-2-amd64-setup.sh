@@ -7,10 +7,6 @@
 
 # Required for _ctypes to be available in Python
 yum install -y libffi-devel
-echo "rpm -ql libffi-devel | grep ffi.h"
-rpm -ql libffi-devel | grep ffi.h
-yum install -y pkgconfig
-pkg-config --cflags --libs libffi
 
 # Download and compile Python 3.9.16
 wget https://www.python.org/ftp/python/3.9.17/Python-3.9.17.tgz
@@ -22,6 +18,7 @@ cd ..
 
 # Update the symlink in the virtual environment to point to the new Python
 ln -sf /Python-3.9.17/python /vpy3/bin/python3
+echo 'export PYTHONPATH=/vpy3/lib/python3.9/site-packages:$PYTHONPATH' >> ~/.bashrc
 echo 'if [ -f ~/.bashrc ]; then . ~/.bashrc; fi' >> ~/.bash_profile
 
 
