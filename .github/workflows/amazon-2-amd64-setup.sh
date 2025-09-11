@@ -26,6 +26,9 @@ sudo yum install \
     xz xz-devel \
     readline readline-devel \
     openjpeg2-devel
+rpm -ql libffi-devel | grep ffi.h
+yum install pkgconfig
+pkg-config --cflags --libs libffi
 
 # Download and compile Python 3.9.16
 wget https://www.python.org/ftp/python/3.9.17/Python-3.9.17.tgz
