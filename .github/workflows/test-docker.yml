@@ -97,20 +97,20 @@ jobs:
         sudo chown -R ${userids[${{ matrix.docker }}]} $GITHUB_WORKSPACE
 
         if [[ "${{ matrix.docker }}" == "amazon-2-amd64" ]]; then
-          docker run --name pillow_container -v $GITHUB_WORKSPACE:/Pillow --user root pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }} /bin/bash -c "/Pillow/.github/workflows/amazon-2-amd64-setup.sh && sudo -u pillow /depends/test.sh"
+          docker run --name pillow_container-"${{ matrix.docker }}" -v $GITHUB_WORKSPACE:/Pillow --user root pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }} /bin/bash -c "/Pillow/.github/workflows/amazon-2-amd64-setup.sh && sudo -u pillow /depends/test.sh"
         else
-          docker run --name pillow_container -v $GITHUB_WORKSPACE:/Pillow pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }}
+          docker run --name pillow_container-"${{ matrix.docker }}" -v $GITHUB_WORKSPACE:/Pillow pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }}
         fi
-        docker run --name pillow_container  -v $GITHUB_WORKSPACE:/Pillow pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }}
+        docker run --name pillow_container-"${{ matrix.docker }}" -v $GITHUB_WORKSPACE:/Pillow pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }}
         
         sudo chown -R runner $GITHUB_WORKSPACE
 
     - name: After success
       run: |
         PATH="$PATH:~/.local/bin"
-        docker start pillow_container
-        pil_path=`docker exec pillow_container /vpy3/bin/python -c 'import os, PIL;print(os.path.realpath(os.path.dirname(PIL.__file__)))'`
-        docker stop pillow_container
+        docker start pillow_container-"${{ matrix.docker }}"
+        pil_path=`docker exec pillow_container-"${{ matrix.docker }}" /vpy3/bin/python -c 'import os, PIL;print(os.path.realpath(os.path.dirname(PIL.__file__)))'`
+        docker stop pillow_container-"${{ matrix.docker }}"
         sudo mkdir -p $pil_path
         sudo cp src/PIL/*.py $pil_path
       env:
