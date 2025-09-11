@@ -18,7 +18,8 @@ sudo yum install \
     libimagequant-devel \
     harfbuzz-devel \
     fribidi-devel \
-    libxcb-devel
+    libxcb-devel \
+    openjpeg2-devel
 
 # Download and compile Python 3.9.16
 wget https://www.python.org/ftp/python/3.9.17/Python-3.9.17.tgz
