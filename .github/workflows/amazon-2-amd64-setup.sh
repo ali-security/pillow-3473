@@ -6,7 +6,19 @@
 #     harfbuzz-devel fribidi-devel libraqm-devel libimagequant-devel libxcb-devel
 
 # Required for _ctypes to be available in Python
-yum install -y libffi-devel
+# yum install -y libffi-devel
+sudo yum install \
+    libjpeg-turbo-devel \
+    zlib-devel \
+    libtiff-devel \
+    libwebp-devel \
+    openjpeg2-devel \
+    lcms2-devel \
+    freetype-devel \
+    libimagequant-devel \
+    harfbuzz-devel \
+    fribidi-devel \
+    libxcb-devel
 
 # Download and compile Python 3.9.16
 wget https://www.python.org/ftp/python/3.9.17/Python-3.9.17.tgz
