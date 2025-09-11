@@ -7,7 +7,7 @@
 
 # Required for _ctypes to be available in Python
 # yum install -y libffi-devel
-sudo yum install \
+sudo yum install -y \
     libjpeg-turbo-devel \
     zlib-devel \
     libtiff-devel \
@@ -15,7 +15,6 @@ sudo yum install \
     openjpeg2-devel \
     lcms2-devel \
     freetype-devel \
-    libimagequant-devel \
     harfbuzz-devel \
     fribidi-devel \
     libxcb-devel \
@@ -27,7 +26,7 @@ sudo yum install \
     readline readline-devel \
     openjpeg2-devel
 rpm -ql libffi-devel | grep ffi.h
-yum install pkgconfig
+yum install -y pkgconfig
 pkg-config --cflags --libs libffi
 
 # Download and compile Python 3.9.16
