@@ -30,7 +30,6 @@ jobs:
           alpine,
           amazon-2-amd64,
           amazon-2023-amd64,
-          arch
           centos-7-amd64,
           centos-stream-8-amd64,
           centos-stream-9-amd64,
@@ -74,6 +73,7 @@ jobs:
           ["debian-11-bullseye-x86"]=1000
           ["fedora-36-amd64"]=1000
           ["fedora-37-amd64"]=1000
+          ["arch"]=1001
           ["gentoo"]=1001
           ["ubuntu-18.04-bionic-amd64"]=1000
           ["ubuntu-20.04-focal-amd64"]=1001
