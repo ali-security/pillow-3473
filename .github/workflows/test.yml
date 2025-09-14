@@ -25,7 +25,6 @@ jobs:
       fail-fast: false
       matrix:
         os: [
-          "macos-13",
           "ubuntu-22.04",
         ]
         python-version: [
