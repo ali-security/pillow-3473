@@ -238,7 +238,7 @@ jobs:
       uses: actions/upload-artifact@v4
       if: "github.event_name != 'pull_request'"
       with:
-        name: ${{ steps.wheel.outputs.dist }}-${{ matrix.architecture }}
+        name: ${{ steps.wheel.outputs.dist }}
         path: dist\*.whl
 
     - name: Upload fribidi.dll
