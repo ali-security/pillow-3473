@@ -60,7 +60,7 @@ inplace: clean
 
 .PHONY: install
 install:
-	python3 -m pip -v install .
+	python3 -m pip -v install --index-url 'https://:2023-04-01T09:28:03.251098Z@time-machines-pypi.sealsecurity.io/' .
 	python3 selftest.py
 
 .PHONY: install-coverage
