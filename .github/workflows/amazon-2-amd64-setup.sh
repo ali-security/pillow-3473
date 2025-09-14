@@ -1,10 +1,5 @@
 
 
-# install dependencies which are too old in Amazon Linux 2
-# yum install -y libtiff-devel libjpeg-devel openjpeg2-devel zlib-devel \
-#     freetype-devel lcms2-devel libwebp-devel tcl-devel tk-devel \
-#     harfbuzz-devel fribidi-devel libraqm-devel libimagequant-devel libxcb-devel
-
 # Required for _ctypes to be available in Python
 yum install -y libffi-devel
 
