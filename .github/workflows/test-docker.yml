@@ -64,13 +64,9 @@ jobs:
       run: |
         # The Pillow user in the docker container is UID 1001 in some and 1000 in others
         declare -A userids=(
-          ["ubuntu-22.04-jammy-arm64v8"]=1001
-          ["ubuntu-22.04-jammy-ppc64le"]=1000
-          ["ubuntu-22.04-jammy-s390x"]=1000
           ["alpine"]=1001
           ["amazon-2-amd64"]=1001
           ["amazon-2023-amd64"]=1001
-          ["arch"]=1001
           ["centos-7-amd64"]=1000
           ["centos-stream-8-amd64"]=1000
           ["centos-stream-9-amd64"]=1001
@@ -86,8 +82,6 @@ jobs:
 
         if [[ "${{ matrix.docker }}" == "amazon-2-amd64" ]]; then
           docker run --name pillow_container -v $GITHUB_WORKSPACE:/Pillow --user root pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }} /bin/bash -c "chmod +x /Pillow/.github/workflows/amazon-2-amd64-setup.sh && sh /Pillow/.github/workflows/amazon-2-amd64-setup.sh && sudo -u pillow /depends/test.sh"
-        elif [[ "${{ matrix.docker }}" == "arch" ]]; then
-          docker run --name pillow_container -v $GITHUB_WORKSPACE:/Pillow --user root pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }} /bin/bash -c "chmod +x /Pillow/.github/workflows/amazon-2-amd64-setup.sh && sh /Pillow/.github/workflows/arch-setup.sh && sudo -u pillow /depends/test.sh"
         else
           docker run --name pillow_container -v $GITHUB_WORKSPACE:/Pillow pythonpillow/${{ matrix.docker }}:${{ matrix.dockerTag }}
         fi
