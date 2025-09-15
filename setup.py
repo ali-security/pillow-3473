@@ -20,11 +20,9 @@ from setuptools.command.build_ext import build_ext
 
 
 def get_version():
-    version = ""
     version_file = "src/PIL/_version.py"
     with open(version_file, encoding="utf-8") as f:
-        version = f.read().split('"')[1]
-    return f"{version}+sp1"
+        return f.read().split('"')[1]
 
 
 PILLOW_VERSION = get_version()
